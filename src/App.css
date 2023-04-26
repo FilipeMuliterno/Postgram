@@ -1,38 +1,521 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-color: rgb(220, 220, 220);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.center {
+    padding: 0 2%;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header {
+    position: sticky;
+    top: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    border-bottom: 2px solid rgb(200, 200, 200);
 }
 
-.App-link {
-  color: #61dafb;
+.header_logo {
+    width: 25%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header_loginForm {
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    text-align: right;
+}
+
+.normal-bar {
+    display: flex;
+    width: 75%;
+}
+
+.header_loginForm form {
+    display: flex;
+}
+
+.header_loginForm input[type=text],
+.header_loginForm input[type=password] {
+    width: 180px;
+    height: 20px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+.header_loginForm input[type=submit] {
+    background-color: #0095f6;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    height: 20px;
+    font-size: 14px;
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.header_loginForm input[type=submit]:hover {
+    background-color: #003050;
+}
+
+.btn_criarConta {
+    display: inline-block;
+}
+
+.btn_criarConta a {
+    font-size: 14px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0095f6;
+    font-weight: 600;
+    transition: 1s;
+}
+
+.btn_criarConta a:hover {
+    color: #003050;
+}
+
+.header_logadoInfo {
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    display: flex;
+    width: 75%;
+    text-align: right;
+}
+
+.header_logadoInfo a {
+    margin: 0 10px;
+    background-color: #0095f6;
+    color: white;
+    cursor: pointer;
+    height: 20px;
+    font-size: 14px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.header_logadoInfo a:hover {
+    background-color: #003050;
+}
+
+.modalCriarConta {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.formCriarConta {
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.formCriarConta input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+
+.formCriarConta input[type=submit] {
+    background-color: #0095f6;
+    cursor: pointer;
+    color: white;
+    transition: 1s;
+}
+
+.formCriarConta input[type=submit]:hover {
+    background-color: #003050;
+}
+
+
+.close-modal-criar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    color: white;
+    line-height: 25px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #0095f6;
+}
+
+.modalUpload {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.formUpload {
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.formUpload input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+
+.formUpload input[type=submit] {
+    background-color: #0095f6;
+    cursor: pointer;
+    color: white;
+    transition: 1s;
+}
+
+.formUpload input[type=submit]:hover {
+    background-color: #003050;
+}
+
+.close-modal-criar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    color: white;
+    line-height: 25px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #0095f6;
+    transition: 1s;
+}
+
+.close-modal-criar:hover {
+    background-color: #003050;
+}
+
+.postSingle {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    background-color: white;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.postSingle img {
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+}
+
+.postSingle p {
+    padding: 5px 20px 5px 20px;
+}
+
+.postSingle form {
+    padding: 20px 5px;
+}
+
+.postSingle textarea {
+    border-radius: 5px;
+    resize: none;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.postSingle input[type=submit] {
+    background-color: #0095f6;
+    cursor: pointer;
+    color: white;
+    border: 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.postSingle input[type=submit]:hover {
+    background-color: #003050;
+}
+
+.imgClass {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.coments h3 {
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.185);
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.all-coments {
+    color: #363636;
+    height: 120px;
+    overflow-y: scroll;
+}
+
+.coments {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+#scrollbar2::-webkit-scrollbar {
+    width: 12px;
+}
+
+#scrollbar2::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+#scrollbar2::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #3636369c;
+}
+
+.title-post {
+    padding-top: 10px;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.user-name {
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.308);
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
+    color: #0177c5;
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.308);
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    border-top: 2px solid rgb(200, 200, 200);
+    background-color: rgb(255, 255, 255);
+}
+
+.div-social {
+    width: 30%;
+    display: flex;
+    gap: 5%;
+}
+
+footer p {
+    text-align: center;
+    width: 70%;
+}
+
+.div-social a {
+    text-decoration: none;
+    color: #0177c5;
+    font-weight: 700;
+    transition: 1s;
+}
+
+.div-social a:hover {
+    color: #003050;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    margin: 8px;
+}
+
+.line1,
+.line2,
+.line3 {
+    background-color: rgb(117, 117, 117);
+}
+
+.navbar-open {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    display: none;
+}
+
+.div-post {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Responsividade */
+
+@media(max-width:750px) {
+
+    .header-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-div input {
+        margin-top: 2%;
+    }
+
+    .header_loginForm form {
+        align-items: center;
+    }
+
+}
+
+@media(max-width:630px) {
+
+    footer p {
+        display: none;
+    }
+
+    .div-social {
+        justify-content: space-evenly;
+        width: 100%;
+    }
+}
+
+@media(max-width:530px) {
+    .nav-bar {
+        pointer-events: none;
+        flex-direction: column;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        width: 65vw;
+        height: 1vh;
+        background-color: rgba(68, 68, 68, 0.911);
+        right: 0;
+        top: 72px;
+        opacity: 0;
+        transition: 0.5s;
+        border-bottom-left-radius: 10px;
+        transform: translatey(-10%);
+        box-shadow: rgba(0, 0, 0, 0.507) 0px 2px 4px 0px, rgba(0, 0, 0, 0.664) 0px 2px 16px 0px;
+    }
+
+    .nav-bar form {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .nav-bar form input[type=submit] {
+        margin-top: 5%;
+    }
+
+    .btn_criarConta {
+        margin-top: 3%;
+    }
+
+    .header-div {
+        align-items: center;
+        display: flex;
+        width: 100%;
+    }
+
+    #email-login {
+        width: 90%;
+    }
+
+    #senha-login {
+        width: 90%;
+    }
+
+    .nav-bar input {
+        width: 70%;
+        margin-top: 5%;
+    }
+
+    .open {
+        pointer-events: all;
+        height: 20vh;
+        transform: translatey(0);
+        opacity: 100%;
+    }
+
+    .mobile-menu div {
+        transition: 0.5s;
+    }
+
+    .navbar-open {
+        display: block;
+    }
+
+    .l2 {
+        opacity: 0;
+    }
+
+    .l1 {
+        background-color: rgb(54, 54, 54);
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+
+    .l3 {
+        background-color: rgb(54, 54, 54);
+        transform: rotate(45deg) translate(-5px, -7px);
+    }
+
+    .div-post {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-post span {
+        margin-bottom: 4%;
+    }
 }
